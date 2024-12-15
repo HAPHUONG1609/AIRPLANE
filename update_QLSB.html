@@ -1,438 +1,199 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Thiết lập body */
-body {
-    font-family: Arial, sans-serif;
-    background: #f0f4f8;
-    color: #333;
-}
-
-/* Bố cục dashboard */
-.dashboard {
-    display: flex;
-    min-height: 100vh;
-    padding-top: 0;
-}
-
-/*BẮT ĐẦU SỬA*/
-/*sửa đầu*/
-
-/* Sidebar */
-.sidebar {
-    width: 270px;
-    padding: 20px;
-    max-height: 400px;
-    background: #2d5167;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto; /* Add scrolling when necessary */
-    max-height: 100vh; /* Optional: limit sidebar height to viewport */
-    overflow: visible; /*hiện dropmenu, không bị ẩn đi dưới main content*/
-    position: relative;
-    z-index: 10;
-}
-
-.sidebar h1 {
-    font-size: 24px;
-    color: #ffffff;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.sidebar nav ul {
-    list-style-type: none;
-    width: 100%;
-    padding: 0;
-}
-
-.sidebar nav > ul.menu > li{
-    margin-right: 10px; /* Khoảng cách giữa các mục */
-    white-space: nowrap; /* Ngăn mục xuống dòng */
-}
-
-.sidebar nav > ul.menu > li > a {
-    font-weight: bold;
-    padding-left: 0px;
-    cursor: text;
-}
-
-.sidebar nav > ul.menu > li > a{
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 14px;
-    border-radius: 4px;
-}
-
-.sidebar nav > ul.menu > li > ul > li > a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 12px 20px;
-    font-size: 14px;
-    border-radius: 4px;
-    display: block;
-}
-
-
-.sidebar nav > ul.menu > li > ul > li {
-    padding: 1px 10px;
-}
-
-.sidebar nav > ul.menu > li > ul > li > ul.dropmenu {
-    color: #ffffff;
-    border-radius: 4px;
-    background-color: #1a394d;
-    padding: 20px;
-    margin-left: 200px;
-    margin-top: -44px;
-    width: 200px;
-    position: absolute;
-    display:none;
-}
-
-.sidebar nav > ul.menu > li > ul > li:hover > ul.dropmenu {
-    display: block;
-}
-
-
-.sidebar nav > ul.menu > li > ul > li:hover > a{   
-    background-color: #ffffff;
-    color: #2d5167;
-    z-index: 10;
-}
-
-
-.sidebar nav > ul.menu > li > ul > li > ul.dropmenu > li{
-    padding-bottom: 15px;
-    border-top: none; 
-}
-
-
-.sidebar nav > ul.menu > li > ul > li > ul.dropmenu > li > a{
-    color: #ffffff;
-    list-style: none;
-    text-decoration: none;
-    font-size: 14px;
-    border-top: none;
-}
-
-
-.sidebar nav > ul.menu > li > ul > li > ul.dropmenu > li:hover > a {    
-    cursor: pointer;
-}
-
- /* sửa cuối */
-
-
-
-
-
- /*-------------PHẦN NÀY XUỐNG DƯỚI KHÔNG SỬA --------*/
-
-.sidebar nav .icon{
-    width: 20px; /* Đặt chiều rộng cố định cho icon */
-    display: inline-flex;
-    justify-content: center; /* Căn giữa nội dung (biểu tượng) theo chiều ngang */
-    align-items: center; /* Căn giữa nội dung (biểu tượng) theo chiều dọc */
-    margin-right: 5px; /* Khoảng cách giữa biểu tượng và văn bản */
-}
-.sidebar nav ul.menu li a .icon {
-    font-size: 1.1rem;
-}
-.sidebar nav ul.menu > li > a {
-    font-weight: bold;
-    padding-left: 0px;
-    cursor: text;
-}
-
-
-/* Nội dung chính */
-.content {
-    flex: 1;
-    padding: 0 0px;
-}
-
-/* Header */
-.card {
-    background: #88B7D4;
-    padding: 20px;
-    border-radius: 0 0 8px 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid #7da1c4;
-    margin-top: 0;
-    z-index: 1; /* Lower z-index than the submenu */
-}
-
-header h2 {
-    font-size: 20px;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-}
-
-.icon {
-    margin-right: 8px;
-    font-size: 1 rem;
-}
-
-.underline {
-    text-decoration: none;
-}
-
-.profile {
-    display: flex;
-    align-items: center;
-}
-
-.profile span {
-    color: #ffffff;
-    margin-right: 10px;
-    font-size: 1em;
-}
-
-.profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-}
-
-/* Search box */
-.search-box {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.search-box input {
-    padding: 10px;
-    font-size: 1em;
-    width: 250px;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-}
-
-.search-box button {
-    padding: 10px 15px;
-    font-size: 1em;
-    cursor: pointer;
-    background-color: #2d5167;
-    color: #ffffff;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    transition: background-color 0.3s;
-}
-
-.search-box button:hover {
-    background-color: #1a394d;
-}
-
-/* Table */
-table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-th, td {
-    padding: 12px;
-    text-align: center;
-    color: #333;
-}
-
-th {
-    background-color: #455a73;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-td {
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.edit-icons button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    margin: 0 5px;
-    font-size: 1.2em;
-    color: #2d5167;
-    transition: color 0.3s;
-}
-
-.edit-icons button:hover {
-    color: #1a394d;
-}
-
-.container{
-    position: relative;
-}
-
-.add-plane {
-    text-align: center;
-    margin: 20px 0;
-}
-/* Reset mặc định */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Thiết lập body */
-body {
-    font-family: Arial, sans-serif;
-    background: #f0f4f8;
-    color: #333;
-}
-
-/* Bố cục dashboard */
-.dashboard {
-    display: flex;
-    min-height: 100vh;
-}
-
-/* /* Sidebar */
-.sidebar {
-    width: 270px;
-    padding: 20px;
-    background: #2d5167;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative; /* Make sidebar the reference for submenu */
-    z-index: 2; /* Ensure sidebar is above other elements */
-}
-
-.content {
-    flex: 1;
-}
-.add-plane {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.add-plane button {
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    background-color: #7da1c4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.add-plane button:hover {
-    background-color: #5a8aa0;
-}
-
-
-
-/* Modal Overlay */
-
-.modal-overlay {
-    display: none; /* Ẩn ban đầu */
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-}
-.modal-overlay.visible {
-    display: flex; /* Hiển thị modal khi có lớp visible */
-}
-.modal {
-    position: relative;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 500px;
-    max-width: 90%; /* Đảm bảo modal không vượt quá màn hình */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    overflow-y: auto; /* Thêm cuộn nếu nội dung quá nhiều */
-    max-height: 90vh; /* Giới hạn chiều cao tối đa để tránh tràn màn hình */
-}
-
-.modal .form-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-
-.modal .form-group {
-    flex: 1 1 48%; /* Tăng phần trăm để mở rộng các ô input */
-    margin-right: 15px; /* Khoảng cách giữa các ô */
-}
-
-.modal .form-group:last-child {
-    margin-right: 0; /* Bỏ khoảng cách cho ô cuối trong hàng */
-}
-.modal h3 {
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.modal label {
-    display: block;
-    text-align: left;
-    margin: 8px 0 4px;
-}
-
-.modal input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
-}
-
-.modal button {
-    padding: 8px 16px;
-    border: none;
-    background-color: #2d5167;
-    color: #ffffff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.modal button:hover {
-    background-color: #1a394d;
-}
-
-
-.close-button {
-    position: absolute;
-    top: 10px; /* Khoảng cách từ mép trên của modal */
-    right: 10px; /* Khoảng cách từ mép phải của modal */
-    background: none;
-    border: none;
-    font-size: 10px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.close-button:hover {
-    color: red; /* Màu khi hover */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="D:\airplane_12\font\fontawesome-free-6.6.0-web\fontawesome-free-6.6.0-web\css\all.css">
+    <title>Hệ Thống Quản Lý Vé Chuyến Bay</title>
+    <link rel="stylesheet" href="style_QLSB.css">
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+</head>
+
+
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h1>QUẢN LÝ</h1>
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <a  href="#">HỆ THỐNG QUẢN LÝ</a>
+
+                        <ul>
+                            <li>
+                                <a href="test.html">
+                                    <span class="icon"><i class="fa fa-plane"></i></span>
+                                    <span class="text">Quản lý máy bay</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fa fa-plane-departure"></i></span>
+                                    <span class="text">Quản lý chuyến bay</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fa fa-building"></i></span>
+                                    <span class="text">Quản lý hãng hàng không</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fa fa-map-marked-alt"></i></span>
+                                    <span class="text">Quản lý sân bay</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fa fa-ticket-alt"></i></span>
+                                    <span class="text">Quản lý Vé</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fa fa-file-invoice"></i></span>
+                                    <span class="text">Quản lý hóa đơn</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fa fa-chart-line"></i></span>
+                                    <span class="text">Quản lý doanh thu</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fa fa-users"></i></span>
+                                    <span class="text">Quản lý người dùng</span>
+                                    
+                                    <!-- User -->
+                                    <ul class="dropmenu">
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon"><i class="fa fa-user"></i></span>
+                                                <span class="text">Khách hàng</span>
+                                            </a>
+                                        </li>
+                            
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon"><i class="fa fa-user-tie"></i></span>
+                                                <span class="text">Nhân viên</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- User -->
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    <li>
+                        <a href="#">TÀI KHOẢN</a>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fa fa-address-card"></i></span>
+                                    <span class="text">Thông tin tài khoản</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                                    <span class="text">Đăng xuất</span>
+                                </a>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
+                </ul> 
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header class="card main">
+                <h2>
+                    <i class="fas fa-plane icon"></i>
+                    <span class="underline">HỆ THỐNG QUẢN LÝ MUA VÉ MÁY BAY</span>
+                </h2>
+                <div class="profile">
+                    <span>Nguyễn A</span>
+                    <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462563265_1048481507072032_4792974640442954065_n.png?stp=dst-png_p480x480&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGnn_gKMqtO8BoxsLVN5bN6-XpkZotZA835emRmi1kDzZLYF9NrZtfXWgStFYGYOq8QWacV6-Mh0ofWgCku4-O4&_nc_ohc=EaE6_hXMdC8Q7kNvgHuVyZa&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&_nc_gid=Al2PQnHG25Sja4kxhCTPAvT&oh=03_Q7cD1QHbl9OCa6HP7zoQDEGp_XYT02YG3fK3gU9LupDSffB26Q&oe=674C2535" alt="Profile.img">
+                </div>
+            </header>
+    
+        <!-- Search Box -->
+            <div class="search-box">
+                <form action="">
+                <input type="text" id ="searchInput"placeholder="Tên sân bay">
+                </form>
+                <button id = "searchButton">🔍</button>
+            </div>
+
+        <!-- Table -->
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã sân bay</th>
+                        <th>Tên sân bay</th>
+                        <th>Thành phố</th>
+                        <th>Quốc gia</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+     
+                </tbody>
+            </table>
+            
+            <div id="container">
+                <div id="ADD" class="add-plane">
+                    <button id="openModalButton">Thêm Sân Bay</button>
+                </div>
+                
+                <!-- Modal Overlay -->
+                <div id="modalOverlay" class="modal-overlay" >
+                    <div class="modal">
+                        <button type="button" id="closeModalButton" class="close-button">&times;</button> <!-- Nút đóng modal -->
+                        <h3>Thêm Máy Bay</h3>
+                        <form id="addPlaneForm">
+                            <div class ="form-row">
+                                <div class="form-group">
+                                    <label for="TenSanBay">Tên sân bay:</label>
+                                    <input type="text" id="TenSanBay" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ThanhPho">Thành phố:</label>
+                                    <input type="text" id="ThanhPho" required>
+                                </div>
+                            </div>
+                            <div class ="form-row">
+
+                                <div class="form-group">
+                                    <label for="QuocGia">Quốc gia:</label>
+                                    <input type="text" id="QuocGia" required>
+                                </div>
+                            </div>
+            
+                            <button type="button" id="addPlaneButton">Thêm</button>
+                            <button type="button" class="save-button" style="display: none;">Lưu thay đổi</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src ="script_QLSB.js"></script>
+</body>
+
+
+</html>
